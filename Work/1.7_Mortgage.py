@@ -9,7 +9,15 @@ principal=500000
 rate=0.05
 payment=2684.11
 amount_paid=0
+month=0
+extra_money=0
 while(principal>0):
+    month+=1
+    extra_money=0
     principal=principal*(1+rate/12)-payment
-    amount_paid+=payment
-print(amount_paid)
+    if(month<=12):
+        principal-=1000
+        extra_money=1000
+    amount_paid+=payment+extra_money
+    
+print(round(amount_paid,2),month," months")
