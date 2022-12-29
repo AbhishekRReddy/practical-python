@@ -10,7 +10,6 @@ rate=0.05
 payment=2684.11
 amount_paid=0
 month=0
-extra_money=0
 while(principal>0):
     month+=1
     extra_money=0
