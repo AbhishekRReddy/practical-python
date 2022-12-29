@@ -9,7 +9,7 @@ Python is an interpreted high level programming language.  It is often classifie
 is considered similar to languages such as Perl, Tcl, or Ruby.  The syntax
 of Python is loosely inspired by elements of C programming.
 
-Python was created by Guido van Rossum around 1990 who named it in honor of Monty Python.
+Python was creted by Guido van Rossum around 1990 who named it in honor of Monty Python.
 
 ### Where to get Python?
 
