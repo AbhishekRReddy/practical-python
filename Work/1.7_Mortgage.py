@@ -26,9 +26,8 @@ while(principal>0):
     else:
         amount_paid+=principal
         principal=0
-    print(month, amount_paid, principal)
+    print(f'Month Number: {month}    Amount Paid Till Now: {amount_paid}    Remaning amount: {principal}')
 
 
-print('Total Paid ',amount_paid)
-print("Months", month)  
+print(f'Total Paid: {amount_paid}    Total Months:{month}')
 
