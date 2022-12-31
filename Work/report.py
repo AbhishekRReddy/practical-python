@@ -37,8 +37,9 @@ def make_report(portfolio,prices):
 total_prices=read_prices('Work/Data/prices.csv')
 list_portfolio=read_portfolio('Work/Data/portfolio.csv')
 report=make_report(list_portfolio,total_prices)
-for row in report:
-    print(row)
+
+for name,shares,price,change in report:
+    print(f'{name:>10s} {shares:>10d} {price:>10.2f} {change:>10.2f}')
 
 
 
