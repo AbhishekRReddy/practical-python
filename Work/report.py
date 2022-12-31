@@ -26,10 +26,19 @@ def read_prices(filename):
             print('Found empty line')
         
     return prices
+
+def make_report(portfolio,prices):
+    stock_status=[]
+    for stock in portfolio:
+        stock_status.append((stock['name'],stock['shares'],prices[stock['name']],
+        -stock['price']+prices[stock['name']]))
+    return stock_status
+        
 total_prices=read_prices('Work/Data/prices.csv')
 list_portfolio=read_portfolio('Work/Data/portfolio.csv')
-for portfolio in list_portfolio:
-    gain_loss=portfolio['price']-total_prices[portfolio['name']]
-    print('Stock:',portfolio['name'],'----Gain or Loss:',round(gain_loss),2)
+report=make_report(list_portfolio,total_prices)
+for row in report:
+    print(row)
+
 
 
