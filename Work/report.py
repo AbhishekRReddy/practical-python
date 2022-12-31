@@ -38,6 +38,10 @@ total_prices=read_prices('Work/Data/prices.csv')
 list_portfolio=read_portfolio('Work/Data/portfolio.csv')
 report=make_report(list_portfolio,total_prices)
 
+headers = ('Name', 'Shares', 'Price', 'Change')
+print(f'{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s}')
+dash='----------'
+print(f'{dash:>10s} {dash:>10s} {dash:>10s} {dash:>10s}')
 for name,shares,price,change in report:
     print(f'{name:>10s} {shares:>10d} {price:>10.2f} {change:>10.2f}')
 
