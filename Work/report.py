@@ -7,16 +7,12 @@ def read_portfolio(filename):
     with open(filename,'rt') as file:
         rows=csv.reader(file)
         header=next(rows)
-        types=[str,int,float]
         for row in rows:
-            converted=[]
-            for func,val in zip(types,row):
-                converted.append(func(val))
-            record=dict(zip(header,converted))
+            record=dict(zip(header,row))
             holding={}
             holding['name']=record['name']
-            holding['shares']=record['shares']
-            holding['price']=round(record['price'],2)
+            holding['shares']=int(record['shares'])
+            holding['price']=round(float(record['price']),2)
             portfolio.append(holding)
         return portfolio
 
