@@ -24,7 +24,8 @@ def read_prices(filename):
         try:
             prices[row[0]]=float(row[1])       
         except IndexError:
-            print('Found empty line')
+            #print('Found empty line')
+            continue
         
     return prices
 
