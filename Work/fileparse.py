@@ -1,7 +1,7 @@
 # fileparse.py
 #
 # Exercise 3.3
-def parse_csv(filename,select=None):
+def parse_csv(filename,select=None,types=None):
     import csv
     with open(filename) as f:
         rows=csv.reader(f)
@@ -15,6 +15,8 @@ def parse_csv(filename,select=None):
                 continue
             if(select):
                 row=[row[i] for i in positions]
+            if(types):
+                row=[func(val) for func,val in zip(types,row)]
             record=dict(zip(headers,row))
             records.append(record)
     return records
