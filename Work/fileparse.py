@@ -1,10 +1,10 @@
 # fileparse.py
 #
 # Exercise 3.3
-def parse_csv(filename,select=None,types=None,has_headers=False):
+def parse_csv(filename,select=None,types=None,has_headers=False,delimit=None):
     import csv
     with open(filename) as f:
-        rows=csv.reader(f)
+        rows=csv.reader(f,delimiter=delimit)
         if(has_headers):
             headers=next(rows)
         if(select):
