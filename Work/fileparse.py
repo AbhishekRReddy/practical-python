@@ -1,7 +1,7 @@
 # fileparse.py
 #
 # Exercise 3.3
-def parse_csv(filename,select=None,types=None,has_headers=False,delimit=','):
+def parse_csv(filename,select=None,types=None,has_headers=False,delimit=',',silence_errors=False):
     if(not has_headers and select):
         raise RuntimeError('Select argument requires headers')
     import csv
@@ -22,8 +22,9 @@ def parse_csv(filename,select=None,types=None,has_headers=False,delimit=','):
                 try:
                     row=[func(val) for func,val in zip(types,row)]
                 except ValueError as e:
-                    print('Row ',row_no,"Couldn't convert",row)
-                    print('Row ',row_no, e)
+                    if(not silence_errors):
+                        print('Row ',row_no,"Couldn't convert",row)
+                        print('Row ',row_no, e)
                     continue
             
             if(has_headers):
