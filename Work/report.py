@@ -50,9 +50,9 @@ def portfolio_report(portfolio_filename, prices_filename):
     report=make_report(list_portfolio,total_prices)
     print_report(report)
 
-portfolio_report('Work/Data/portfolio2.csv', 'Work/Data/prices.csv')
-files = ['Work/Data/portfolio.csv', 'Work/Data/portfolio2.csv']
+portfolio_report('Data/portfolio2.csv', 'Data/prices.csv')
+files = ['Data/portfolio.csv', 'Data/portfolio2.csv']
 for name in files:
         print(f'{name:-^43s}')
-        portfolio_report(name, 'Work/Data/prices.csv')
+        portfolio_report(name, 'Data/prices.csv')
         print()
