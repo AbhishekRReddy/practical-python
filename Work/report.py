@@ -2,31 +2,14 @@
 #
 # Exercise 2.4
 import csv
+import fileparse
 def read_portfolio(filename):
-    portfolio=[]
-    with open(filename,'rt') as file:
-        rows=csv.reader(file)
-        header=next(rows)
-        for row in rows:
-            record=dict(zip(header,row))
-            holding={}
-            holding['name']=record['name']
-            holding['shares']=int(record['shares'])
-            holding['price']=round(float(record['price']),2)
-            portfolio.append(holding)
-        return portfolio
+    portfolio=fileparse.parse_csv(filename,types=[str,int,float],has_headers=True,
+                            silence_errors=True)
+    return portfolio
 
 def read_prices(filename):
-    prices={}
-    file=open(filename,'rt')
-    rows=csv.reader(file)
-    for row in rows:
-        try:
-            prices[row[0]]=float(row[1])       
-        except IndexError:
-            #print('Found empty line')
-            continue
-        
+    prices=fileparse.parse_csv(filename,types=[str,float]) 
     return prices
 
 def make_report(portfolio,prices):
@@ -50,9 +33,9 @@ def portfolio_report(portfolio_filename, prices_filename):
     report=make_report(list_portfolio,total_prices)
     print_report(report)
 
-portfolio_report('Data/portfolio2.csv', 'Data/prices.csv')
-files = ['Data/portfolio.csv', 'Data/portfolio2.csv']
-for name in files:
-        print(f'{name:-^43s}')
-        portfolio_report(name, 'Data/prices.csv')
-        print()
+def portfolio_report(portfolio_file, price_file):
+    files = [portfolio_file, price_file]
+    for name in files:
+            print(f'{name:-^43s}')
+            portfolio_report(name, 'Data/prices.csv')
+            print()
