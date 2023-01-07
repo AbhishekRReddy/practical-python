@@ -3,6 +3,8 @@
 # Exercise 3.3
 def parse_csv(any_iterable,select=None,types=None,has_headers=True,delimit=',',silence_errors=True):
     import csv
+    if(type(any_iterable) is str):
+        raise SystemExit('Please provide iterable rather than fielname')
     if(not has_headers and select):
         raise RuntimeError('Select argument requires headers')
     rows=csv.reader(any_iterable,delimiter=delimit)
