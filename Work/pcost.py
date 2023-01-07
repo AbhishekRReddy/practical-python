@@ -12,3 +12,5 @@ def pcost(filename):
         except ValueError:
             print(f'Row {i}:Couldnt convert:{stock}')
     return total_cost
+def main(filenames):
+    print(pcost(filenames[1]))
