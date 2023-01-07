@@ -1,19 +1,18 @@
 # fileparse.py
 #
 # Exercise 3.3
-def parse_csv(filename,select=None,types=None,has_headers=False,delimit=',',silence_errors=False):
+def parse_csv(any_iterable,select=None,types=None,has_headers=False,,silence_errors=False):
     if(not has_headers and select):
         raise RuntimeError('Select argument requires headers')
-    import csv
-    with open(filename) as f:
-        rows=csv.reader(f,delimiter=delimit)
+    
+    for row in any_iterable:
         if(has_headers):
-            headers=next(rows)
+            headers=next(row)
         if(select):
             positions=[headers.index(column) for column in select]
             headers=select
         records=[]
-        for row_no,row in enumerate(rows,start=1):
+        for row_no,row in enumerate(any_iterable,start=1):
             if(not row):
                 continue
             if(select):
