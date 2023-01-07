@@ -14,3 +14,9 @@ def pcost(filename):
     return total_cost
 def main(filenames):
     print(pcost(filenames[1]))
+
+if __name__=='__main__':
+    import sys
+    if(len(sys.argv)!=2):
+        raise SystemError(f'Usage: {sys.argv[0]} requires price_file name')
+    main(sys.argv)
