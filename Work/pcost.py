@@ -6,8 +6,8 @@ def pcost(filename):
     total_cost=0
     for i,stock in enumerate(portfolio,start=1):
         try:
-            share=int(stock['shares'])
-            price=float(stock['price'])
+            share=int(stock.qty)
+            price=float(stock.price)
             total_cost+=share*price
         except ValueError:
             print(f'Row {i}:Couldnt convert:{stock}')
