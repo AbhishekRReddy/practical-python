@@ -38,9 +38,8 @@ def portfolio_report(portfolio_filename, prices_filename):
 def main(filenames):
     portfolio_report(filenames[1],filenames[2])
     
-'''def portfolio_report(portfolio_file, price_file):
-    files = [portfolio_file, price_file]
-    for name in files:
-            print(f'{name:-^43s}')
-            portfolio_report(name, 'Data/prices.csv')
-            print()'''
+if __name__ == '__main__':
+    import sys
+    if len(sys.argv)!=3:
+        raise SystemExit(f'Usage:{sys.argv[0]}' 'portfolio file price file required')
+    main(sys.argv)
