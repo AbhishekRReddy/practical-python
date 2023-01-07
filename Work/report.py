@@ -24,7 +24,9 @@ def make_report(portfolio,prices):
         prices[stock.name]-stock.price))
     return stock_status
         
-def print_report(report):
+def print_report(report,formatter):
+    formatter.headings(['Name','Shares','Price','Change'])
+
     headers = ('Name', 'Shares', 'Price', 'Change')
     print(f'{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s}')
     dash='-'*10
