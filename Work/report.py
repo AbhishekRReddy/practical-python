@@ -3,8 +3,7 @@
 # Exercise 2.4
 import csv
 import fileparse
-def main(filenames):
-    portfolio_report(filenames[1],filenames[2])
+
 
 def read_portfolio(filename):
     portfolio=fileparse.parse_csv(filename,types=[str,int,float],has_headers=True,
@@ -36,6 +35,9 @@ def portfolio_report(portfolio_filename, prices_filename):
     report=make_report(list_portfolio,total_prices)
     print_report(report)
 
+def main(filenames):
+    portfolio_report(filenames[1],filenames[2])
+    
 '''def portfolio_report(portfolio_file, price_file):
     files = [portfolio_file, price_file]
     for name in files:
