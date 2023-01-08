@@ -4,7 +4,7 @@
 import csv
 import fileparse
 import stock
-
+import table_format
 def read_portfolio(filename):
     with open(filename) as f:
         portfolio=fileparse.parse_csv(f,types=[str,int,float],has_headers=True,
@@ -26,18 +26,16 @@ def make_report(portfolio,prices):
         
 def print_report(report,formatter):
     formatter.headings(['Name','Shares','Price','Change'])
-    headers = ('Name', 'Shares', 'Price', 'Change')
-    print(f'{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s}')
-    dash='-'*10
-    print((dash+' ')*len(headers))
     for name,shares,price,change in report:
-        print(f'{name:>10s} {shares:>10d} {price:>10.2f} {change:>10.2f}')
+        row_data=[name,int(shares),f'{price:0.2f}',f'{change:0.2f}']
+        formatter.row(row_data)
 
 def portfolio_report(portfolio_filename, prices_filename):
     total_prices=read_prices(prices_filename)
     list_portfolio=read_portfolio(portfolio_filename)
     report=make_report(list_portfolio,total_prices)
-    print_report(report)
+    formatter=table_format.TableFormatter()
+    print_report(report,formatter)
 
 def main(filenames):
     portfolio_report(filenames[1],filenames[2])
