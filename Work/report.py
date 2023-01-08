@@ -27,14 +27,14 @@ def make_report(portfolio,prices):
 def print_report(report,formatter):
     formatter.headings(['Name','Shares','Price','Change'])
     for name,shares,price,change in report:
-        row_data=[name,int(shares),f'{price:0.2f}',f'{change:0.2f}']
+        row_data=[name,str(shares),f'{price:0.2f}',f'{change:0.2f}']
         formatter.row(row_data)
 
 def portfolio_report(portfolio_filename, prices_filename):
     total_prices=read_prices(prices_filename)
     list_portfolio=read_portfolio(portfolio_filename)
     report=make_report(list_portfolio,total_prices)
-    formatter=table_format.TableFormatter()
+    formatter=table_format.TextTableFormatter()
     print_report(report,formatter)
 
 def main(filenames):
