@@ -30,7 +30,7 @@ def print_report(report,formatter):
         row_data=[name,str(shares),f'{price:0.2f}',f'{change:0.2f}']
         formatter.row(row_data)
 
-def portfolio_report(portfolio_filename, prices_filename,fmt):
+def portfolio_report(portfolio_filename, prices_filename,fmt='txt'):
     total_prices=read_prices(prices_filename)
     list_portfolio=read_portfolio(portfolio_filename)
     report=make_report(list_portfolio,total_prices)
@@ -38,10 +38,10 @@ def portfolio_report(portfolio_filename, prices_filename,fmt):
     print_report(report,formatter)
 
 def main(filenames):
-    portfolio_report(filenames[1],filenames[2])
+    portfolio_report(filenames[1],filenames[2],filenames[3])
     
 if __name__ == '__main__':
     import sys
-    if len(sys.argv)!=3:
+    if len(sys.argv)!=4:
         raise SystemExit(f'Usage:{sys.argv[0]}' 'portfolio file price file required')
     main(sys.argv)
