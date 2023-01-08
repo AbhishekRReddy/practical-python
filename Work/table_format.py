@@ -45,5 +45,5 @@ def create_formatter(name):
         return TextTableFormatter()
     elif(name=='csv'):
         return CSVTableFormatter()
-    elif(name='html'):
+    elif(name=='html'):
         return HTMLTableFormatter()
