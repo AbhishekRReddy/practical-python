@@ -39,3 +39,11 @@ class HTMLTableFormatter(TableFormatter):
         print('<tr><th>'+'</th><th>'.join(headers)+'</th></tr>')
     def row(self, rowdata):
         print('<tr><td>'+'</td><td>'.join(rowdata)+'</td></tr>')
+
+def create_formatter(name):
+    if(name=='txt'):
+        return TextTableFormatter()
+    elif(name=='csv'):
+        return CSVTableFormatter()
+    elif(name='html'):
+        return HTMLTableFormatter()
