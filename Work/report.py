@@ -34,7 +34,7 @@ def portfolio_report(portfolio_filename, prices_filename):
     total_prices=read_prices(prices_filename)
     list_portfolio=read_portfolio(portfolio_filename)
     report=make_report(list_portfolio,total_prices)
-    formatter=table_format.TextTableFormatter()
+    formatter=table_format.CSVTableFormatter()
     print_report(report,formatter)
 
 def main(filenames):
