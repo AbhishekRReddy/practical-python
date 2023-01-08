@@ -3,6 +3,8 @@ class Stock:
         self.name=name
         self.qty=qty
         self.price=price
+    def __repr__(self):
+        return f'Stock({self.name},{self.qty},{self.price})'
     def cost(self):
         return self.qty*self.price
     def sell(self,qty):
