@@ -30,3 +30,12 @@ class CSVTableFormatter(TableFormatter):
         print(','.join(headers))
     def row(self, rowdata):
         print(','.join(rowdata))
+
+class HTMLTableFormatter(TableFormatter):
+    '''
+    Output portfolio data in HTML format
+    '''
+    def headings(self, headers):
+        print('<tr><th>'+'</th><th>'.join(headers)+'</th></tr>')
+    def row(self, rowdata):
+        print('<tr><td>'+'</td><td>'.join(rowdata)+'</td></tr>')
