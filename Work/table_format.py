@@ -21,3 +21,12 @@ class TextTableFormatter(TableFormatter):
         for column in rowdata:
             print(f'{column:>10s}',end=' ')
         print()
+
+class CSVTableFormatter(TableFormatter):
+    '''
+    Output portfolio data in CSV format
+    '''
+    def headings(self, headers):
+        print(','.join(headers))
+    def row(self, rowdata):
+        print(','.join(rowdata))
