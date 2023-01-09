@@ -4,8 +4,8 @@ class Stock:
         self.shares=qty
         self.price=price
     def __repr__(self):
-        return f'Stock({self.name},{self.qty},{self.price})'
+        return f'Stock({self.name},{self.shares},{self.price})'
     def cost(self):
-        return self.qty*self.price
+        return self.shares*self.price
     def sell(self,qty):
-        self.qty-=qty
+        self.shares-=qty
