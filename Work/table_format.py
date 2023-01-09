@@ -40,6 +40,9 @@ class HTMLTableFormatter(TableFormatter):
     def row(self, rowdata):
         print('<tr><td>'+'</td><td>'.join(rowdata)+'</td></tr>')
 
+class FormatError(Exception):
+    pass
+
 def create_formatter(name):
     if(name=='txt'):
         return TextTableFormatter()
@@ -47,6 +50,8 @@ def create_formatter(name):
         return CSVTableFormatter()
     elif(name=='html'):
         return HTMLTableFormatter()
+    else:
+        raise FormatError(name,'is invalid format')
 
 def print_table(portfolio,columns,formatter):
     formatter.headings(columns)
