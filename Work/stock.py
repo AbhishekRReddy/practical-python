@@ -1,7 +1,7 @@
 class Stock:
     def __init__(self,name,qty,price):
         self.name=name
-        self.qty=qty
+        self.shares=qty
         self.price=price
     def __repr__(self):
         return f'Stock({self.name},{self.qty},{self.price})'
