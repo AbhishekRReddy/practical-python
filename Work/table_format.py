@@ -47,3 +47,10 @@ def create_formatter(name):
         return CSVTableFormatter()
     elif(name=='html'):
         return HTMLTableFormatter()
+
+def print_table(portfolio,columns,formatter):
+    formatter.headings(columns)
+    for row in portfolio:
+        rowdata=[str(getattr(row,column)) for column in columns]
+        formatter.row(rowdata)
+        
